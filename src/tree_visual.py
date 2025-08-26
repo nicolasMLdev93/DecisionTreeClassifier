@@ -8,3 +8,6 @@ plt.figure(figsize=(16,16))
 plot_tree(model, class_names=['Benigno','Maligno'],
           filled=True, rounded=True)
 plt.show()
+
+# Guardar gráfico 
+plt.savefig('tree.png', dpi=300, bbox_inches='tight')
