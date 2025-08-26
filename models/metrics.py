@@ -1,3 +1,0 @@
-
-
-# Métricas del modelo
