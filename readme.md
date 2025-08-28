@@ -22,21 +22,18 @@ python -m venv .venv
 
 pip install -r requirements.txt
 
-4 - Entrenar el modelo:
 
-python src/train_model.py
+4 - Entrenamiento y predicción:
 
-5 - Predicción de resultados:
+python src/main.py
 
-python src/evaluate.py
+5 - Gráficos:
 
-6 - Gráficos:
-
-python src/tree_visual.py
+python reports/metrics.py
 
 🌳 Árbol de decisión:
 
-En la carpeta src al correr el archivo src/tree_visual.py podrás visualizar gráficamente el árbol de decisión, incluyendo cada uno de sus nodos y métricas importantes, como por ejemplo el índice Gini, que indica la pureza de cada nodo y cómo el modelo decide las divisiones para clasificar correctamente los datos.
+En la carpeta src al correr el archivo reports/metrics.py podrás visualizar gráficamente el árbol de decisión, incluyendo cada uno de sus nodos y métricas importantes, como por ejemplo el índice Gini, que indica la pureza de cada nodo y cómo el modelo decide las divisiones para clasificar correctamente los datos.
 
 🧑 Mi perfil:
 
