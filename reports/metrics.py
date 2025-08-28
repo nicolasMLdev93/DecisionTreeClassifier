@@ -5,6 +5,7 @@ from classes.Decision_Tree import Decision_Tree
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
+from sklearn.model_selection import train_test_split
 
 # Cargar dataset
 dataset = pd.read_csv('../data/clear_dataset.csv')
@@ -15,7 +16,10 @@ def get_features(dataset):
     Y = dataset.iloc[:, 0]   # Variable dependiente
     return X, Y
 
-x_train, y_train = get_features(dataset)
+X, Y = get_features(dataset)
+
+# Dividir dataset
+x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=42)
 
 # Instanciar y entrenar modelo
 classifier_instance:Decision_Tree = Decision_Tree()
