@@ -1,8 +1,11 @@
 import pandas as pd
-from train_model import model
-import matplotlib.pyplot as plt
-from sklearn.tree import plot_tree
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# Creamos 2 dataframes, uno maligno y otro benigno para hacer las predicciones de la Patología X
+
+# Columnas de variables independientes
 columns = ['radius_mean','texture_mean','perimeter_mean','area_mean','smoothness_mean',
                'compactness_mean','concavity_mean','concave_points_mean','symmetry_mean',
                'fractal_dimension_mean','radius_se','texture_se','perimeter_se','area_se',
@@ -24,22 +27,3 @@ X_test_B = pd.DataFrame([[10.0, 10.0, 65.0, 400.0, 0.10, 0.10, 0.05, 0.02, 0.15,
                         0.2, 0.3, 1.0, 20.0, 0.005, 0.02, 0.01, 0.005, 0.02, 0.003,
                         12.0, 12.0, 75.0, 450.0, 0.12, 0.10, 0.06, 0.02, 0.15, 0.05]],
                       columns=columns)
-
-dataset = pd.read_csv('../data/clear_dataset.csv')
-X = dataset.iloc[:,1:] # X
-Y = dataset.iloc[:,0] # Y
-
-def evaluate(model,X):
-    
-    # Predicción de patología de cáncer
-    y_pred = model.predict(X)
-    return y_pred
-
-result_B = evaluate(model,X_test_B)
-result_M = evaluate(model,X_test_M)
-
-# Análisis con resultado benigno
-print(f"El análisis de los datos del modelo sostiene que {'si tiene patología X' if result_B[0] == 1 else 'no tiene patología X'}")
-
-# Análisis con resultado maligno 
-print(f"El análisis de los datos del modelo sostiene que {'si tiene patología X' if result_M[0] == 1 else 'no tiene patología X'}")
